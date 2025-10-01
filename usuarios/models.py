@@ -1,5 +1,5 @@
 from django.db import models
-from django_countries import CountryField
+from django_countries.fields import CountryField
 
 class Usuarios (models.Model):
     nome = models.CharField(max_length=100, null=False, blank=False)
