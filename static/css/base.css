@@ -22,13 +22,21 @@
 
 
 /* ESTILIZAÇÃO DO HEADER */
+  
+  
+  /* Header especial da landing */
+
+
+
 
 .header{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     gap: 30%;
+    position: relative;
     background-color: var(--vermelho);
+    transition: background 0.3s ease;
 }
 
 .left-header img{
@@ -38,6 +46,8 @@
     margin-bottom: 10px;
     cursor: pointer;
 }
+
+  
 
 .left-header{
     display: flex;

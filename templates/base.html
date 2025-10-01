@@ -4,14 +4,17 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title></title>
+    <title>{% block title %}{% endblock %}</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}">
     <link rel='stylesheet' type='text/css' media='screen' href='{% static "css/base.css" %}'>
-    <script src='main.js'></script>
+    {% block style.css %}{% endblock %}
+    {% block header.js %}{% endblock %}
     <script src="https://kit.fontawesome.com/44090f5f38.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="header">
+    <header class="header {% block header_class %}{% endblock %}">
         <div class="left-header">
             <img src="/static/img/logo-DOC.png" alt="logo-D.O.C">
             <nav class="nav-left">

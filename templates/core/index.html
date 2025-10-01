@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block header_class %}landing-header{% endblock %}
 {% block main_class %}{% endblock %}  {# sem padding, hero ocupa a tela inteira #}
+{% block style.css %}<link rel='stylesheet' type='text/css' media='screen' href='{% static "css/style.css" %}'>{% endblock %}
+{% block header.js %}<script src="{% static 'js/header.js' %}"></script>{% endblock %}
+{% block title %}Página Inicial - D.O.C{% endblock %}
 {% block content %}
-
     <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
