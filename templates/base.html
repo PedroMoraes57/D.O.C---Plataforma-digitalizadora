@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +6,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title></title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='{% static "css/base.css" %}'>
     <script src='main.js'></script>
     <script src="https://kit.fontawesome.com/44090f5f38.js" crossorigin="anonymous"></script>
 </head>
@@ -21,8 +22,11 @@
         </div>
         <div class="right-header">
             <nav class="nav-right">
-                <input type="" name="" id="">
-                <i class="fa-solid fa-user"></i>
+                <div class="search-box">
+                    <input type="search" name="search" id="search" placeholder="Encontre seus documentos aqui...">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>        
+                <i class="fa-solid fa-user"></i>          
             </nav>
         </div>
     </header>
@@ -33,43 +37,50 @@
         {% endblock %}
     </main>
 
-    <footer>
-        <img src="" alt="">
-        <div id="footer-navegacao">
-            <h4 class="topicos-footer">Navegação</h4>
-            <p class="textos-footer">Sobre Nós</p>
-            <p class="textos-footer">Como Funciona</p>
-            <p class="textos-footer">Vantagens</p>
-            <p class="textos-footer">Avaliações</p>
-            <p class="textos-footer">FAQs</p>
+    <footer class="footer-principal">
+        <div class="footer">
+            <div class="footer-nav">
+                <img src="{% static 'img/logo-DOC.png' %}" alt="">
+            </div>
+            <div class="footer-nav">
+                <h4 class="topicos-footer">Navegação</h4>
+                <a href="" class="textos-footer">Sobre Nós</a>
+                <a href="" class="textos-footer">Como Funciona</a>
+                <a href="" class="textos-footer">Vantagens</a>
+                <a href="" class="textos-footer">Avaliações</a>
+                <a href="" class="textos-footer">FAQs</a>
+            </div>
+    
+            <div class="footer-nav">
+                <h4 class="topicos-footer">Digitalização</h4>
+                <a href="" class="textos-footer">Digitalizar Documento</a>
+                <a href="" class="textos-footer">Visualizar Documento</a>
+            </div>
+    
+            <div class="footer-nav">
+                <h4 class="topicos-footer">Sua Conta</h4>
+                <a href="" class="textos-footer">Minha Conta</a>
+                <a href="" class="textos-footer">Fazer Login</a>
+                <a href="" class="textos-footer">Cadastrar-se</a>
+            </div>
+    
+            <div class="footer-nav redes">
+                <h4 class="topicos-footer">Redes Sociais</h4>
+                <div class="redes-i">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-facebook"></i>
+                </div>
+            </div>
         </div>
-
-        <div id="footer-digitalizacao">
-            <h4 class="topicos-footer">Digitalização</h4>
-            <p class="textos-footer">Digitalizar Documento</p>
-            <p class="textos-footer">Vizualizar Documento</p>
-        </div>
-
-        <div id="footer-suaconta">
-            <h4 class="topicos-footer">Sua Conta</h4>
-            <p class="textos-footer">Minha Conta</p>
-            <p class="textos-footer">Fazer Login</p>
-            <p class="textos-footer">Cadastrar-se</p>
-        </div>
-
-        <div id="footer-redessociais">
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-        </div>
-
-        <br><br><br><br>
-        <hr>
-
-        <p class="texto-footer">© 2025 D.O.C -  Todos os direitos reservados.</p>
-        <a class="links-footer" href="">Política de Privacidade</a>
-        <a class="links-footer" href="">Termos e Condições</a>
-        <a class="links-footer" href="">Política de Cookies</a>
+        <br>
+        <hr class="hr-footer">
+        <div class="footer-down">
+            <p>&copy;2025 D.O.C - Todos os direitos reservados</p>
+            <a href="">Política de Privacidade</a>
+            <a href="">Termos e Condições</a>
+            <a href="">Política de Cookies</a>
+       </div>
     </footer>
 </body>
 </html>
