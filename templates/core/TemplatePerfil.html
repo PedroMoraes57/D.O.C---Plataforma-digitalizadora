@@ -1,97 +1,55 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% load static %}
 
-{% block title %}Perfil de {{ usuario.username }}{% endblock %}
-
 {% block content %}
-    <section class="profile-banner">
-        <div class="profile-card">
-            <img src="{% static 'images/profile_pic.jpg' %}" alt="Foto de Perfil" class="profile-pic">
-            <div class="profile-info">
-                <h1>{{ usuario.get_full_name|default:usuario.username }}</h1>
-                <p>E-mail: {{ usuario.email }}</p>
-                <p>Telefone: (17) 99639-6499</p> 
-            </div>
-            <a href="#edit-profile-modal" class="edit-icon" title="Editar Perfil">
-                <i class="icon icon-edit"></i>
-            </a>
+<div class="container mx-auto py-8">
+    <!-- Perfil do Usuário -->
+    <div class="flex items-center mb-8">
+        <img src="{% static 'images/avatar.png' %}" alt="Foto de perfil" class="fotoPerf">
+        <div>
+            <h1 class="NomeUsuario">{{ user.first_name }} {{ user.last_name }}</h1>
+            <p><strong>E-mail:</strong> {{ user.email }}</p>
+            <p><strong>Telefone:</strong> {{ user.perfil.telefone }}</p>
         </div>
-    </section>
+    </div>
 
-    <section class="document-section">
-        <div class="document-header">
-            <h2>Arquivos Digitalizados</h2>
-            <div class="document-search">
-                <input type="text" placeholder="Procurar por nome do documento aqui...">
-                <button><i class="icon icon-search"></i></button>
-            </div>
-        </div>
-        <table class="document-table">
-            <thead>
+    <!-- Título -->
+    <h2 class="text-xl font-semibold text-red-600 mb-4">Arquivos Digitalizados</h2>
+
+    <!-- Tabela de documentos -->
+    <div class="overflow-x-auto">
+        <table class="tabelaDocumentos">
+            <thead class="backgroundTabela">
                 <tr>
-                    <th>NOME DO DOCUMENTO</th>
-                    <th>TIPO</th>
-                    <th>SETOR</th>
-                    <th>ASSUNTO</th>
+                    <th class="nDOC">Nome do Documento</th>
+                    <th class="tDOC">Tipo</th>
+                    <th class="sDOC">Setor</th>
+                    <th class="aDOC">Assunto</th>
                 </tr>
             </thead>
             <tbody>
                 {% for doc in documentos %}
-                <tr>
-                    <td>
-                        <strong>{{ doc.nome }}</strong>
-                        <small>{{ doc.data_publicacao|date:"d/m, H:i" }}</small> 
-                    </td>
-                    <td>{{ doc.tipo }}</td>
-                    <td>{{ doc.setor }}</td>
-                    <td>Financiamento</td>
-                    <td class="actions">
-                        <a href="{{ doc.arquivo.url }}" title="Baixar" download>
-                            <i class="icon icon-download"></i>
-                        </a>
-                        <a href="#" title="Excluir">
-                            <i class="icon icon-delete"></i>
-                        </a>
+                <tr class="border-b">
+                    <td class="py-3 px-4">{{ doc.nome }}</td>
+                    <td class="py-3 px-4">{{ doc.tipo }}</td>
+                    <td class="py-3 px-4">{{ doc.setor }}</td>
+                    <td class="py-3 px-4">{{ doc.assunto }}</td>
+                        <a href="{{ doc.arquivo.url }}" class="text-blue-600 hover:underline">Baixar</a>
+                        <form action="{% url 'deletar_documento' doc.id %}" method="post" class="inline">
+                            {% csrf_token %}
+                            <button type="submit">Excluir</button>
+                        </form>
                     </td>
                 </tr>
                 {% empty %}
                 <tr>
-                    <td colspan="5">Nenhum documento encontrado.</td>
+                    <td colspan="5" class="noDOC">
+                        Nenhum documento encontrado.
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-    </section>
-
-    <div id="edit-profile-modal" class="modal-overlay">
-        <div class="modal-content">
-            <h2>Editar Usuário:</h2>
-                {% csrf_token %}
-                <div class="profile-pic-uploader">
-                    <img src="{% static 'images/profile_pic.jpg' %}" alt="Foto de Perfil" class="modal-profile-pic">
-                    <label for="id_profile_pic" class="camera-icon-overlay">
-                        <i class="icon icon-camera"></i>
-                    </label>
-                    <input type="file" name="profile_pic" id="id_profile_pic" style="display: none;" accept="image/*">
-                </div>
-                <div class="form-group">
-                    <label for="id_name">Nome:</label>
-                    <input type="text" id="id_name" name="name" value="{{ usuario.get_full_name|default:usuario.username }}">
-                </div>
-                <div class="form-group">
-                    <label for="id_email">E-mail:</label>
-                    <input type="email" id="id_email" name="email" value="{{ usuario.email }}">
-                </div>
-                <div class="form-group">
-                    <label for="id_phone">Telefone:</label>
-                    <input type="text" id="id_phone" name="phone" value="(17) 99639-6499">
-                </div>
-                <div class="modal-actions">
-                    <a href="#" class="btn btn-secondary">Cancelar</a>
-                    <button type="submit" class="btn btn-primary">Salvar</button>
-                </div>
-            </form>
-        </div>
     </div>
-{% endblock %}
+</div>
 {% endblock %}
