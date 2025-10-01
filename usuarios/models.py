@@ -6,7 +6,7 @@ class Usuarios (models.Model):
     email = models.EmailField(null=False, blank=False, unique=True)
     pais = CountryField(blank_label=("Selecione um país"))
     telefone = models.CharField(max_length=25, null=False, blank=False)
-    foto_perfil = models.ImageField()
+    foto_perfil = models.ImageField(null=True, blank=True)
 
     def __str__(self):
-        return self.nome
+        return self.nomepip 
