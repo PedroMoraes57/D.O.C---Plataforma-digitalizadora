@@ -1,43 +1,96 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block header_class %}landing-header{% endblock %}
+{% block main_class %}{% endblock %}  {# sem padding, hero ocupa a tela inteira #}
 {% block content %}
-    <h1>Mais praticidade, mais segurança e seus documentos sempre ao seu alcance com apenas um clique.</h1>
-    <button >Digitalize Agora!</button>
-    <button>Saiba Mais</button>
 
-    <div id="infos">
-        <div>
-            <h1>99%</h1>
-            <p>Pecisão OCR</p>
-        </div>
-
-        <div>
-            <h1>1K</h1>
-            <p>Empresas</p>
-        </div>
-
-        <div>
-            <h1>99%</h1>
-            <p>Pecisão OCR</p>
-        </div>
-    </div>
-
-        <div id="vantagens">
-            <h2>Vantagens do D.O.C</h2>
-            <div>
-                <h4>Sustentabilidade</h4>
-                <img src="" alt="">
-                <p>Reduz o uso de papel e libera espaço fisico ajudando a natureza.</p>
-            </div>
-            <div>
-                <h4>Segurança</h4>
-                <img src="" alt="">
-                <p>Armazena tudo com proteção e evita perdas de arquivos.</p>
-            </div>
-            <div>
-                <h4>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 id="frase">
+                Mais praticidade, mais segurança e seus documentos sempre ao seu alcance com apenas um clique.
+            </h1>
+            <div class="hero-buttons">
+                <button class="btn-primary">Digitalize Agora!</button>
+                <button class="btn-secondary">Saiba Mais</button>
             </div>
         </div>
-    </div>
+
+        <div class="info-item">
+            <h1 class="num">99%</h1>
+            <p class="tex">Precisão OCR</p>
+        </div>
+
+        <div class="info-item">
+            <h1 class="num">1K</h1>
+            <p class="tex">Empresas</p>
+        </div>
+
+        <div class="info-item">
+            <h1 class="num">99%</h1>
+            <p class="tex">Precisão OCR</p>
+        </div>
+    </section>
+
+
+    <!-- VANTAGENS -->
+    <section id="vantagens" class="vantagens">
+        <h2 id="tit-vantagens">Vantagens do D.O.C</h2>
+
+        <div class="vant">
+            <h4 class="tit-vant">Sustentabilidade</h4>
+            <img src="{% static 'img/sustentabilidade.png' %}" alt="Sustentabilidade">
+            <p class="tex-vant">Reduz o uso de papel e libera espaço físico ajudando a natureza.</p>
+        </div>
+
+        <div class="vant">
+            <h4 class="tit-vant">Segurança</h4>
+            <img src="{% static 'img/seguranca.png' %}" alt="Segurança">
+            <p class="tex-vant">Armazena tudo com proteção e evita perdas de arquivos.</p>
+        </div>
+
+        <div class="vant">
+            <h4 class="tit-vant">Agilidade</h4>
+            <img src="{% static 'img/agilidade.png' %}" alt="Agilidade">
+            <p class="tex-vant">Digitaliza e organiza documentos rápido, facilitando o dia a dia.</p>
+        </div>
+    </section>
+
+<!-- O QUE É E COMO FUNCIONA -->
+    <section id="oqcomo">
+        <div>
+            <h2 class="tit-oqcomo">O que é?</h2>
+            <p class="tex-oqcomo">A D.O.C. é uma plataforma desenvolvida para simplificar a gestão de documentos. Nosso sistema utiliza digitalização e 
+                inteligência artificial para organizar, classificar e facilitar o acesso a arquivos de forma rápida, segura e eficiente. Nosso compromisso é oferecer 
+                praticidade, agilidade e confiabilidade para instituições e usuários no dia a dia.</p>
+        </div>
+
+        <div>
+            <h2 class="tit-oqcomo">Como Funciona?</h2>
+            <p class="tex-oqcomo">O D.O.C. simplifica o processo de gestão de documentos. Você envia seus arquivos para a plataforma e o sistema, por meio 
+                de OCR e inteligência artificial, faz a leitura, organiza e classifica automaticamente. Assim, todos os documentos ficam reunidos em um só lugar, 
+                podendo ser encontrados facilmente por filtros ou pela busca inteligente. Tudo de forma rápida, segura e acessível. </p>
+        </div>
+    </section>
+
+<!--FEEDBACKS-->
+    <section id="feedbacks">
+        <h2>O que nossos usuários estão achando?</h2>
+        <p>Veja as avaliações do nosso serviço</p>
+
+    </section>
+
+<!--FAQs-->
+    <section id="faqs">
+        <h2>Está com dúvidas?</h2>
+        <p>Nossas FAQs estão aqui para ajudar!</p>
+    <section>
+
+<!--FINAL-->
+        <section id="final">
+            <p>Quer mais segurança e praticidade para seus arquivos?</p>
+            <h2>Experimente nossa digitalização e organize sua vida em segundos!</h2>
+            <button class="btn1">Digitalize Agora!</button>
+        </section>
+
 {% endblock %}
