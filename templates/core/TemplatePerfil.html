@@ -50,4 +50,40 @@
                 </tbody>
         </table>
     </section>
+    
+    <div class="ediçãoUsuario">
+        <div class="modal-content">
+            <h2>Editar Usuário:</h2>
+    
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %} 
+                <div class="PerfilFotoUPD">
+                    <img src="{% static 'images/profile_pic.jpg' %}" alt="Foto de Perfil" class="foto-perfil">
+                    <label class="camera-icon-overlay"></label>
+                    <input type="file" name="profile_pic" class="id_profile_pic" accept="image/*">
+                </div>
+    
+                <div class="EditNome">
+                    <label for="id_name">Nome:</label>
+                    <input type="text" clas="nomeUPD" name="name" value="{{ usuario.get_full_name|default:usuario.username }}">
+                </div>
+    
+                <div class="EditEmail">
+                    <label >E-mail:</label>
+                    <input type="email" id="emailUPD" name="email" value="{{ usuario.email }}">
+                </div>
+    
+                <div class="EditTelefone">
+                    <label>Telefone:</label>
+                    <input type="text" id="foneUPD" name="phone" value="{{ usuario.telefone }}">
+                </div>
+    
+                <div class="Botaoes">
+                    <button type="button" class="BotCancel">Cancelar</button>
+                    <button type="submit" class="BotSave">Salvar</button>
+                </div>
+    
+            </form>
+        </div>
+    </div>
 {% endblock %}
