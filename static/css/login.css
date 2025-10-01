@@ -1,14 +1,23 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--fonte);
 }
 
-body,
-input {
-  font-family: "Poppins", sans-serif;
+:root{
+    --vermelho: #AE2C12;
+    --amarelo: #FFc16E;
+    --azul-escuro: #282f36;
+    --cinza-escuro: #3A444D;
+    --cinza-claro: #5D5D5D;
+    --preto: #07111D;
+    --branco-amarelado: #E4E5DF;
+    --branco: #EFEFEF;
+    --fonte: 'Poppins';
 }
 
 .container {
@@ -164,12 +173,12 @@ form.sign-in-form {
 .container:before {
   content: "";
   position: absolute;
-  height: 2000px;
-  width: 2000px;
+  height: 1600px;
+  width: 1600px;
   top: -10%;
   right: 48%;
   transform: translateY(-50%);
-  background-image: linear-gradient(-45deg, #002f6c 0%, #ff6f61 100%);
+  background-color: var(--azul-escuro);
   transition: 1.8s ease-in-out;
   border-radius: 50%;
   z-index: 6;
@@ -184,20 +193,19 @@ form.sign-in-form {
 .panel {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
   justify-content: space-around;
-  text-align: center;
   z-index: 6;
+  text-align: center;
 }
 
 .left-panel {
   pointer-events: all;
-  padding: 3rem 17% 2rem 12%;
+  padding: 5rem 16% 0rem 10%;
 }
 
 .right-panel {
   pointer-events: none;
-  padding: 3rem 12% 2rem 17%;
+  padding: 5rem 16% 0rem 10%;
 }
 
 .panel .content {
@@ -208,12 +216,12 @@ form.sign-in-form {
 
 .panel h3 {
   font-weight: 600;
-  line-height: 1;
-  font-size: 1.5rem;
+  line-height: 1.2;
+  font-size: 2.5rem;
 }
 
 .panel p {
-  font-size: 0.95rem;
+  font-size: 1rem;
   padding: 0.7rem 0;
 }
 
@@ -221,10 +229,11 @@ form.sign-in-form {
   margin: 0;
   background: none;
   border: 2px solid #fff;
-  width: 130px;
-  height: 41px;
-  font-weight: 600;
-  font-size: 0.8rem;
+  width: 200px;
+  height: 51px;
+  font-weight: 400;
+  font-size: 1rem;
+  margin-top: 10px;
 }
 
 .right-panel .image,
