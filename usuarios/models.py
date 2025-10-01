@@ -9,4 +9,4 @@ class Usuarios (models.Model):
     foto_perfil = models.ImageField(null=True, blank=True)
 
     def __str__(self):
-        return self.nomepip 
+        return self.nome
