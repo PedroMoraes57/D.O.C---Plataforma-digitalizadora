@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block style.css %}<link rel='stylesheet' type='text/css' media='screen' href='{% static "css/perfil.css" %}'>{% endblock %}
+
+{% block title %}Perfil do Usuário{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="banner">
+        <img src="{% static 'img/banner.png' %}" alt="Foto de perfil">
+    </div>
+    
+    <div class="container">
+        <div class="perfil">
+            <img src="{% static 'img/PERFILZINHO.png' %}" alt="Foto de perfil">
+            <div>
+                <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+                <p><strong>E-mail:</strong> {{ user.email }}</p>
+                <p><strong>Telefone:</strong> {{ user.perfil.telefone }}</p>
+            </div>
+        </div>
+
+    <h2>Arquivos Digitalizados</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome do Documento</th>
+                <th>Tipo</th>
+                <th>Setor</th>
+                <th>Assunto</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doc in documentos %}
+            <tr>
+                <td>{{ doc.nome }}</td>
+                <td>{{ doc.tipo }}</td>
+                <td>{{ doc.setor }}</td>
+                <td>{{ doc.assunto }}</td>
+                <td>
+                    <a href="{{ doc.arquivo.url }}">Baixar</a>
+                    <form action="{% url 'deletar_documento' doc.id %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit">Excluir</button>
+                    </form>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">Nenhum documento encontrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

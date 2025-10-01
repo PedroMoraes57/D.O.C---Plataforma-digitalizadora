@@ -2,7 +2,7 @@ from django.db import models
 from django_countries.fields import CountryField
 
 ## Esse modelo de usuário será corrigido, portanto, desconsidere o atual
-class Usuarios (models.Model):
+class Usuario(models.Model):
     nome = models.CharField(max_length=100, null=False, blank=False)
     email = models.EmailField(null=False, blank=False, unique=True)
     pais = CountryField(blank_label=("Selecione um país"))

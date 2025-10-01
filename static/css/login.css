@@ -91,7 +91,7 @@ form.sign-in-form {
 .input-field i {
   text-align: center;
   line-height: 55px;
-  color: #b0b0b0;
+  color: #EFEFEF;
   transition: 0.5s;
   font-size: 1.1rem;
 }
@@ -107,57 +107,28 @@ form.sign-in-form {
 }
 
 .input-field input::placeholder {
-  color: #b0b0b0;
+  color: #EFEFEF;
   font-weight: 500;
 }
 
-.social-text {
-  padding: 0.7rem 0;
-  font-size: 1rem;
-}
-
-.social-media {
-  display: flex;
-  justify-content: center;
-}
-
-.social-icon {
-  height: 46px;
-  width: 46px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 0.45rem;
-  color: #333;
-  border-radius: 50%;
-  border: 1px solid #333;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: 0.3s;
-}
-
-.social-icon:hover {
-  color: #ff6f61;
-  border-color: #ff6f61;
-}
-
 .btn {
-  width: 150px;
-  background-color: #ff6f61;
+  width: 220px;
+  background-color: var(--branco);
   border: none;
   outline: none;
-  height: 49px;
+  height: 58px;
+  font-size: 17px;
   border-radius: 49px;
-  color: #fff;
+  color: var(--branco);
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: bold;
   margin: 10px 0;
   cursor: pointer;
   transition: 0.5s;
 }
 
 .btn:hover {
-  background-color: #e65a50;
+  background-color: rgb(118, 18, 18);
 }
 
 .panels-container {

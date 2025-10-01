@@ -1,6 +1,6 @@
 from django.contrib import admin
-from usuarios.models import Usuarios
-from documentos.models import Documentos
+from usuarios.models import Usuario
+from documentos.models import Documento
 
-admin.site.register(Usuarios)
-admin.site.register(Documentos)
+admin.site.register(Usuario)
+admin.site.register(Documento)

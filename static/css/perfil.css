@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--fonte);
+}
+
+:root{
+    --vermelho: #AE2C12;
+    --amarelo: #FFc16E;
+    --azul-escuro: #282f36;
+    --cinza-escuro: #3A444D;
+    --cinza-claro: #5D5D5D;
+    --preto: #07111D;
+    --branco-amarelado: #E4E5DF;
+    --branco: #EFEFEF;
+    --fonte: 'Poppins';
+}
+
+/* ===== PERFIL DO USUÁRIO ===== */
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Container geral */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+ 
+}
+
+/* Perfil do usuário */
+.container .perfil {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    z-index: auto;
+}
+
+.perfil img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.perfil h1 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.perfil p {
+    font-size: 0.95rem;
+    margin: 3px 0;
+    color: #555;
+}
+
+.perfil strong {
+    color: #222;
+}
+
+/* Título */
+h2 {
+    font-size: 1.4rem;
+    color: var(--vermelho);
+    margin-bottom: 15px;
+}
+
+/* ===== TABELA ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+thead {
+    background: #f2f2f2;
+}
+
+thead th {
+    text-align: left;
+    padding: 12px;
+    font-weight: bold;
+    color: #444;
+}
+
+tbody td {
+    padding: 12px;
+    border-top: 1px solid #ddd;
+    color: #333;
+}
+
+tbody tr:hover {
+    background-color: #fafafa;
+}
+
+/* Ações */
+td a {
+    color: #1e88e5;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+td button {
+    background: none;
+    border: none;
+    color: #e53935;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+td button:hover {
+    text-decoration: underline;
+}
+.banner {
+        width: 100%;
+        height: 250px; /* descer mais */
+        position: relative;
+        overflow: hidden;
+}
+    
+.banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+}
+    
+.container .perfil {
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin-top: -80px; /* menos negativo, a foto ainda sobrepõe o banner */
+        z-index: 10;
+}
+    
+.perfil img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 20px;
+        border: 5px solid white;
+        z-index: 10;
+        position: relative;
+}
+    

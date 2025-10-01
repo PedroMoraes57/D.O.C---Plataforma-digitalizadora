@@ -1,6 +1,14 @@
-{% extends "core/base.html" %}
+{% extends "base.html" %}
 {% load static %}
 {% block title%}Digitalizer Documento{% endblock %}
 {% block content %}
-
+<h2>Digitalize seus Documentos</h2>
+<p>Rápiodo, Fácil e Prático</p>
+<section id"Anexar_Doc">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Salvar</button>
+    </form>
+</section>
 {% endblock %}
