@@ -1,26 +1,32 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Perfil de {{ usuario.username }}{% endblock %}
+
 {% block content %}
-    <section class="bannerFundo">
-        <div class="container-perfil">
-            <img src="{% static 'images/' %}" alt="Foto de Perfil" class="foto-perfil">
-            <div class="perfil-infos">
+    <section class="profile-banner">
+        <div class="profile-card">
+            <img src="{% static 'images/profile_pic.jpg' %}" alt="Foto de Perfil" class="profile-pic">
+            <div class="profile-info">
                 <h1>{{ usuario.get_full_name|default:usuario.username }}</h1>
                 <p>E-mail: {{ usuario.email }}</p>
-                <p>Telefone:{{usuario.telefone}}</p> 
+                <p>Telefone: (17) 99639-6499</p> 
             </div>
-            </div>
+            <a href="#edit-profile-modal" class="edit-icon" title="Editar Perfil">
+                <i class="icon icon-edit"></i>
+            </a>
+        </div>
     </section>
-    
-    <section class="AreaDocs">
-        <div class="headerDocumento">
+
+    <section class="document-section">
+        <div class="document-header">
             <h2>Arquivos Digitalizados</h2>
-            <div class="buscaDocumentos">
+            <div class="document-search">
                 <input type="text" placeholder="Procurar por nome do documento aqui...">
-                <button>Icone lupa</button>
+                <button><i class="icon icon-search"></i></button>
             </div>
         </div>
-
-        <table class="tabelaDocumentos">
+        <table class="document-table">
             <thead>
                 <tr>
                     <th>NOME DO DOCUMENTO</th>
@@ -38,52 +44,54 @@
                     </td>
                     <td>{{ doc.tipo }}</td>
                     <td>{{ doc.setor }}</td>
-                        <a href="{{ parte de baixar arquivo }}" title="Baixar" download></a>
-                        <a href="#" title="Excluir"></a>
+                    <td>Financiamento</td>
+                    <td class="actions">
+                        <a href="{{ doc.arquivo.url }}" title="Baixar" download>
+                            <i class="icon icon-download"></i>
+                        </a>
+                        <a href="#" title="Excluir">
+                            <i class="icon icon-delete"></i>
+                        </a>
                     </td>
                 </tr>
                 {% empty %}
                 <tr>
-                    <td colspan="5"">Nenhum documento encontrado.</td>
+                    <td colspan="5">Nenhum documento encontrado.</td>
                 </tr>
                 {% endfor %}
-                </tbody>
+            </tbody>
         </table>
     </section>
-    
-    <div class="ediçãoUsuario">
+
+    <div id="edit-profile-modal" class="modal-overlay">
         <div class="modal-content">
             <h2>Editar Usuário:</h2>
-    
-            <form action="" method="post" enctype="multipart/form-data">
-                {% csrf_token %} 
-                <div class="PerfilFotoUPD">
-                    <img src="{% static 'images/profile_pic.jpg' %}" alt="Foto de Perfil" class="foto-perfil">
-                    <label class="camera-icon-overlay"></label>
-                    <input type="file" name="profile_pic" class="id_profile_pic" accept="image/*">
+                {% csrf_token %}
+                <div class="profile-pic-uploader">
+                    <img src="{% static 'images/profile_pic.jpg' %}" alt="Foto de Perfil" class="modal-profile-pic">
+                    <label for="id_profile_pic" class="camera-icon-overlay">
+                        <i class="icon icon-camera"></i>
+                    </label>
+                    <input type="file" name="profile_pic" id="id_profile_pic" style="display: none;" accept="image/*">
                 </div>
-    
-                <div class="EditNome">
+                <div class="form-group">
                     <label for="id_name">Nome:</label>
-                    <input type="text" clas="nomeUPD" name="name" value="{{ usuario.get_full_name|default:usuario.username }}">
+                    <input type="text" id="id_name" name="name" value="{{ usuario.get_full_name|default:usuario.username }}">
                 </div>
-    
-                <div class="EditEmail">
-                    <label >E-mail:</label>
-                    <input type="email" id="emailUPD" name="email" value="{{ usuario.email }}">
+                <div class="form-group">
+                    <label for="id_email">E-mail:</label>
+                    <input type="email" id="id_email" name="email" value="{{ usuario.email }}">
                 </div>
-    
-                <div class="EditTelefone">
-                    <label>Telefone:</label>
-                    <input type="text" id="foneUPD" name="phone" value="{{ usuario.telefone }}">
+                <div class="form-group">
+                    <label for="id_phone">Telefone:</label>
+                    <input type="text" id="id_phone" name="phone" value="(17) 99639-6499">
                 </div>
-    
-                <div class="Botaoes">
-                    <button type="button" class="BotCancel">Cancelar</button>
-                    <button type="submit" class="BotSave">Salvar</button>
+                <div class="modal-actions">
+                    <a href="#" class="btn btn-secondary">Cancelar</a>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
                 </div>
-    
             </form>
         </div>
     </div>
+{% endblock %}
 {% endblock %}
