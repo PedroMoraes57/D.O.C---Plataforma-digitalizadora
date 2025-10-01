@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section class="bannerFundo">
+        <div class="container-perfil">
+            <img src="{% static 'images/' %}" alt="Foto de Perfil" class="foto-perfil">
+            <div class="perfil-infos">
+                <h1>{{ usuario.get_full_name|default:usuario.username }}</h1>
+                <p>E-mail: {{ usuario.email }}</p>
+                <p>Telefone:{{usuario.telefone}}</p> 
+            </div>
+            </div>
+    </section>
+    
+    <section class="AreaDocs">
+        <div class="headerDocumento">
+            <h2>Arquivos Digitalizados</h2>
+            <div class="buscaDocumentos">
+                <input type="text" placeholder="Procurar por nome do documento aqui...">
+                <button>Icone lupa</button>
+            </div>
+        </div>
+
+        <table class="tabelaDocumentos">
+            <thead>
+                <tr>
+                    <th>NOME DO DOCUMENTO</th>
+                    <th>TIPO</th>
+                    <th>SETOR</th>
+                    <th>ASSUNTO</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for doc in documentos %}
+                <tr>
+                    <td>
+                        <strong>{{ doc.nome }}</strong>
+                        <small>{{ doc.data_publicacao|date:"d/m, H:i" }}</small> 
+                    </td>
+                    <td>{{ doc.tipo }}</td>
+                    <td>{{ doc.setor }}</td>
+                        <a href="{{ parte de baixar arquivo }}" title="Baixar" download></a>
+                        <a href="#" title="Excluir"></a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5"">Nenhum documento encontrado.</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+        </table>
+    </section>
+{% endblock %}
